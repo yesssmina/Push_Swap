@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:06:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/17 17:48:28 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/18 04:11:33 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ t_node	*ft_sa(t_node *lst);
 t_node	*ft_sb(t_node *lst);
 t_node	*ft_pa(t_node **pileA, t_node **pileB);
 t_node	*ft_pb(t_node **pileA, t_node **pileB);
-void ft_ra(t_node **pileA);
-void ft_rb(t_node **pileB);
-
+void	ft_ra(t_node **pileA);
+void	ft_rb(t_node **pileB);
+void	add_front(t_node **begin, int value);
+void	ft_rra(t_node **pileA);
+void	ft_rrb(t_node **pileB);
 
 

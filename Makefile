@@ -11,6 +11,8 @@ SRC =  base.c \
 		ft_pb.c \
 		ft_ra.c \
 		ft_rb.c \
+		ft_rra.c \
+		ft_rrb.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:13:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/17 17:52:17 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/18 04:16:31 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main(int ac, char **av)
 
 	pileA = ft_create_pileA(ac, av);
 	//pileB = ft_create_pileA(ac, av);
-	ft_ra(&pileA);
+	ft_rra(&pileA);
 	ft_print_pile(pileA);
 	
 	return (0);
