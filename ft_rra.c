@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 03:08:03 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/18 04:08:51 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/19 18:49:33 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ void	ft_rra(t_node **pileA)
 
 	if (*pileA && (*pileA)->next)
 	{
-		before_last = *pileA;
 		ultime_node = NULL;
+		before_last = *pileA;
+		
 
 		while (before_last->next->next != NULL)
 		{

@@ -54,16 +54,17 @@ OBJB =  $(BNS:.c=.o)
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
-
+	@$(CC) $(CFLAGS) -c $< -o $@
+	
 $(NAME): $(OBJ)
-	 ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 bonus : $(OBJB)
-	ar rcs $(NAME) $(OBJB)
+	@ar rcs $(NAME) $(OBJB)
 
 clean:
-	rm -f $(OBJ) $(OBJB)
+	@echo "\e[34mJe supprime les .o\e[0m"
+	@rm -f $(OBJ) $(OBJB)
 
 fclean: clean
 	rm -f $(NAME)

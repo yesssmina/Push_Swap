@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pa.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 15:43:12 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/20 17:13:39 by sannagar         ###   ########.fr       */
+/*   Created: 2023/08/19 17:21:44 by sannagar          #+#    #+#             */
+/*   Updated: 2023/08/20 18:48:03 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pa(t_node **pileA, t_node **pileB)
+void	free_list(t_node *list)
 {
-	int	value;
 	t_node	*tmp;
-	t_node	*new_node;
 
-	if (*pileB)
+	//tmp = list;
+
+	while (list != NULL)
 	{
-		value = (*pileB)->value; //valeur sommet B
-		tmp = *pileB; //stock pointeur sommet B
-
-		*pileB = (*pileB)->next; // deplace pointeur sommet au 2e element
-		free(tmp); //libere 1er maillon B
-
-		// Ajoute 1er maillon a A
-		new_node = malloc(sizeof(t_node));
-		new_node->value = value;
-		new_node->next = *pileA;
-		*pileA = new_node;
-
+		tmp = list->next;
+		free(list);
+		list = tmp;
 	}
+	//free(list);
 }
