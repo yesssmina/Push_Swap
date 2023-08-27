@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:48:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/17 17:51:50 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:49:27 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,21 @@ void	ft_rb(t_node **pileB)
 	if (*pileB && (*pileB)->next)
 	{
 		t_node	*first_node;
+		t_node	*last_node;
 
 		first_node = *pileB;
+		*pileB = first_node->next; // deplacement pointeur 2e noeud
+		(*pileB)->prev = NULL;
 
-		*pileB = (*pileB)->next; // deplacement pointeur 2e noeud
-		first_node->next = NULL; // detache le 1er noeud du reste de la liste
-		
-		add_back(pileB, first_node->value); // Ajouter le premier nœud à la fin de la pile
+		last_node = *pileB;
 
-		free(first_node);
+		while (last_node->next)
+			last_node = last_node->next;
+
+
+		last_node->next = first_node;
+		first_node->prev = last_node;
+		first_node->next = NULL; // le 1er noeud deplace est mtn le dernier
+
 	}
 }

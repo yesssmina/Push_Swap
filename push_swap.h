@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:06:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/20 17:59:39 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:43:28 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 # include "./Libft/libft.h"
+
 
 typedef struct		s_node
 {
+	struct s_node	*prev;
 	int				value;
 	struct s_node	*next;
 }					t_node;
@@ -39,5 +42,10 @@ void	free_list(t_node *list);
 t_node	*plus_petit_node(t_node *pileA);
 void	sort(t_node **pileA, t_node **pileB);
 int		ft_error_double(t_node *pileA);
-
+int		size_pileA(t_node *pileA);
+int		smallest_place(t_node *pileA, t_node *smallest);
+void	mediane_ra(t_node **pileA, t_node *smallest);
+void	mediane_rra(t_node **pileA, t_node *smallest);
+void	divide_and_push(t_node **pileA, t_node **pileB, int segment_size);
+int		max_segment(int debut_segment, int size_pile, int nb_segment);
 

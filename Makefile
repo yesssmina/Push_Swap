@@ -15,6 +15,8 @@ SRC =  base.c \
 		ft_rrb.c \
 		free.c \
 		insertion.c \
+		insertion2.c \
+		utils.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 03:08:03 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/19 18:49:33 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:56:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	add_front(t_node **begin, int value)
 
 	new_node->value = value;
 	new_node->next = *begin;
+	new_node->prev = NULL;
+
+	if (*begin != NULL)
+		(*begin)->prev = new_node;
+		
 	*begin = new_node;
 }
 
@@ -44,10 +49,13 @@ void	ft_rra(t_node **pileA)
 
 		ultime_node = before_last->next;
 		before_last->next = NULL; //detachement dernier noeud
+		ultime_node->prev = NULL;
 
-		add_front(pileA, ultime_node->value);
+		ultime_node->next = *pileA;
+		(*pileA)->prev = ultime_node;
+		*pileA = ultime_node;
 
-		free(ultime_node);
+		//free(ultime_node);
 
 	}
 }
