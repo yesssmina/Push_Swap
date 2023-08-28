@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:10:27 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/22 18:28:12 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/28 22:55:14 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,25 @@ int	smallest_place(t_node *pileA, t_node *smallest)
 			return (smallest_place);
 
 		smallest_place++;
+		list = list->next;
+	}
+	return (0);
+}
+
+int	biggest_place(t_node *pileB, t_node *biggest)
+{
+	t_node	*list;
+	int		biggest_place;
+
+	biggest_place = 1;
+	list = pileB;
+
+	while (list)
+	{
+		if (list->value == biggest->value)
+			return (biggest_place);
+
+		biggest_place++;
 		list = list->next;
 	}
 	return (0);

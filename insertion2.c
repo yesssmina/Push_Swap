@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:34:11 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/27 19:51:37 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/29 01:24:46 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,47 @@ int	max_segment(int debut_segment, int size_pile, int nb_segment)
     int	segment_size = size_pile / nb_segment;
 
     return (debut_segment + 1) * segment_size - 1;
+}
+
+t_node	*plus_grand_node(t_node *pileB)
+{
+	t_node	*plus_grand;
+
+	plus_grand = pileB;
+
+	while (pileB)
+	{
+		if (pileB->value > plus_grand->value)
+			plus_grand = pileB;
+		pileB = pileB->next;
+	}
+	return (plus_grand);
+}
+
+void	sort_push_a(t_node **pileA, t_node **pileB)
+{
+	t_node	*biggest;
+	int		size;
+	int		mediane;
+	int		position;
+
+	while (*pileB)
+	{
+		biggest = plus_grand_node(*pileB);
+		size = size_pileA(*pileB);
+		mediane = size / 2;
+		position = biggest_place(*pileB, biggest);
+
+		if (position <= mediane)
+			mediane_rb(pileB, biggest);
+		else
+		{
+			mediane_rrb(pileB, biggest);
+		}
+		ft_pa(pileA, pileB);
+		ft_putstr_fd("pa\n", 1);
+
+	}
 }
 
 
@@ -66,9 +107,6 @@ void	divide_and_push(t_node **pileA, t_node **pileB, int	nb_segment)
 			bottom_node = bottom_node->prev;
 			count_bottom++;
 		}
-		//printf("size:%d\n", size);
-		//printf("top_count:%d\n", count_top);
-		//printf("bottom_count:%d\n", count_bottom);
 		
 		if (count_top < count_bottom)
 		{
@@ -88,12 +126,9 @@ void	divide_and_push(t_node **pileA, t_node **pileB, int	nb_segment)
 			
 		}
 		if (count_top == size && count_bottom == size)
-		{
-			puts("ici");
+
 			smallest = segment_until + 1;
 			segment_until = segment_until + memo_segment_until + 1;
-			printf("*****smallest***:%d\n", smallest);
-			printf("*****max******:%d\n", segment_until);
 		}
 		else
 		{
@@ -111,5 +146,5 @@ void	divide_and_push(t_node **pileA, t_node **pileB, int	nb_segment)
 		//printf("top_count:%d\n", count_top);
 		//printf("bottom_count:%d\n", count_bottom);
 
-		// premier trie de A ok, 
-		// trier b avant le pb
+		//printf("*****smallest***:%d\n", smallest);
+		//printf("*****max******:%d\n", segment_until);

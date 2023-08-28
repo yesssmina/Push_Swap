@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:13:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/27 18:04:33 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/28 23:53:58 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ int main(int ac, char **av)
 
 	//sort(&pileA, &pileB);
 	divide_and_push(&pileA, &pileB, 5);
-	puts("pileA:");
-	ft_print_pile(pileA);
-	puts("pileB:");
-	ft_print_pile(pileB);
+	sort_push_a(&pileA, &pileB);
+	//puts("pileA:");
+	//ft_print_pile(pileA);
+	//puts("pileB:");
+	//ft_print_pile(pileB);
 	free_list(pileA);
 	free_list(pileB);
 	
