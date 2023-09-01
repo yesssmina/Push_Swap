@@ -6,18 +6,20 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:34:11 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/29 01:24:46 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/01 18:55:05 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-int	max_segment(int debut_segment, int size_pile, int nb_segment) 
+int	max_segment(int size_pile, int nb_segment) 
 {
-    int	segment_size = size_pile / nb_segment;
+    int	segment_size;
 
-    return (debut_segment + 1) * segment_size - 1;
+	segment_size = size_pile / nb_segment;
+
+    return (segment_size - 1);
 }
 
 t_node	*plus_grand_node(t_node *pileB)
@@ -55,10 +57,67 @@ void	sort_push_a(t_node **pileA, t_node **pileB)
 		{
 			mediane_rrb(pileB, biggest);
 		}
+
 		ft_pa(pileA, pileB);
-		ft_putstr_fd("pa\n", 1);
+		//ft_putstr_fd("pa\n", 1);
 
 	}
+}
+
+void	sort_push_b(t_node **pileA, t_node **pileB, int smallest, int seg_until)
+{
+	t_node	*tmp;
+	int		top_node;
+	int		value;
+	int		all_smaller;
+	
+	value = (*pileA)->value;
+	top_node = (*pileA)->value;
+	tmp = *pileB;
+	all_smaller = 1;
+
+	if (value < smallest || value > seg_until) 
+	{
+		ft_ra(pileA);
+		return; 
+	}
+	if (*pileB == NULL)
+	{
+		ft_pb(pileA, pileB);
+		//ft_putstr_fd("pb\n", 1);
+		return ;
+	}
+
+	while (tmp != NULL)
+	{
+		if (value > tmp->value)
+		{
+			all_smaller = 0;
+			break;
+		}
+		tmp = tmp->next;
+	}
+
+	if (all_smaller)
+	{
+		ft_pb(pileA, pileB);
+		return ;
+	}
+	
+	while ((*pileA)->value == top_node)
+	{
+
+		if (top_node > (*pileB)->value)
+		{
+			ft_pb(pileA, pileB);
+			return ;
+		}
+		else
+		{
+			ft_rb(pileB);
+		}
+	}
+	
 }
 
 
@@ -76,7 +135,7 @@ void	divide_and_push(t_node **pileA, t_node **pileB, int	nb_segment)
 
 	smallest = plus_petit_node(*pileA)->value;
 	size = size_pileA(*pileA);
-	segment_until = max_segment(smallest, size, nb_segment);
+	segment_until = max_segment(size, nb_segment);
 	memo_segment_until = segment_until;
 	while (*pileA)
 	{
@@ -87,6 +146,8 @@ void	divide_and_push(t_node **pileA, t_node **pileB, int	nb_segment)
 		count_bottom = 0;
 		
 
+		//printf("*****smallest***:%d\n", smallest);
+		//printf("*****max******:%d\n", segment_until);
 		while (top_node != NULL)
 		{
 			if (top_node->value >= smallest  && top_node->value <= segment_until)
@@ -110,41 +171,54 @@ void	divide_and_push(t_node **pileA, t_node **pileB, int	nb_segment)
 		
 		if (count_top < count_bottom)
 		{
-			while (*pileA != NULL && (*pileA)->value != top_node->value)
+			if (*pileA && *pileA && (*pileA)->next)
 			{
-				ft_ra(pileA);
-				ft_putstr_fd("ra\n", 1);
+				while (*pileA && (*pileA)->value != top_node->value)
+				{
+					ft_ra(pileA);
+				}
 			}
+			else
+			{
+				ft_pb(pileA, pileB);
+				return ;
+			}
+
 		}
 		if (count_top > count_bottom)
 		{
 			while (*pileA != NULL && (*pileA)->value != bottom_node->value)
 			{
 				ft_rra(pileA);
-				ft_putstr_fd("rra\n", 1);
+				//ft_putstr_fd("rra", 1);
 			}
 			
 		}
+		else
+		{
+			//puts("BAHLA");
+			sort_push_b(pileA, pileB, smallest, segment_until);
+		}
 		if (count_top == size && count_bottom == size)
-
+		{
 			smallest = segment_until + 1;
 			segment_until = segment_until + memo_segment_until + 1;
 		}
-		else
-		{
-			ft_pb(pileA, pileB);
-			ft_putstr_fd("pb\n", 1);
-		}
-
-		//puts("pileA:");
-		//ft_print_pile(*pileA);
-		//puts("pileB:");
-		//ft_print_pile(*pileB);
 	}
 }
 		//printf("size:%d\n", size);
 		//printf("top_count:%d\n", count_top);
 		//printf("bottom_count:%d\n", count_bottom);
 
-		//printf("*****smallest***:%d\n", smallest);
-		//printf("*****max******:%d\n", segment_until);
+			//puts("**********la?");
+			//printf("value:%d\n", value);
+			//printf("tmp:%d\n", tmp->value);
+		//puts("pileA:");
+		//ft_print_pile(*pileA);
+		//puts("pileB:");
+		//ft_print_pile(*pileB);
+
+			//printf("size:%d\n", size_pile);
+	//printf("debut_segment:%d\n", debut_segment);
+	//printf("nb_segment:%d\n", nb_segment);
+	//printf("seg_size:%d\n", segment_size);

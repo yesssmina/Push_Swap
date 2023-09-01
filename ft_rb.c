@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:48:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/22 18:49:27 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:00:20 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	ft_rb(t_node **pileB)
 		first_node->prev = last_node;
 		first_node->next = NULL; // le 1er noeud deplace est mtn le dernier
 
+	ft_putstr_fd("rb\n", 1);
 	}
 }

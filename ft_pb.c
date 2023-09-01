@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:14:19 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/20 20:01:29 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/01 18:58:47 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void ft_pb(t_node **pileA, t_node **pileB)
         
         tmp->next = *pileB; // Lie le nœud temporaire au début de la pile B
         *pileB = tmp; // Mise a jour du pointeur de pile B
+		ft_putstr_fd("pb\n", 1);
     }
 }

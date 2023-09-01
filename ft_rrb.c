@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 04:09:49 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/22 18:58:59 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:59:17 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	ft_rrb(t_node **pileB)
 		ultime_node->next = *pileB;
 		(*pileB)->prev = ultime_node;
 		*pileB = ultime_node;
-
+		ft_putstr_fd("rrb\n", 1);
 	}
 }

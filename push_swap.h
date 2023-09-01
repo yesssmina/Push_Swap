@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:06:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/28 22:50:09 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/01 20:12:41 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ int		smallest_place(t_node *pileA, t_node *smallest);
 void	mediane_rb(t_node **pileB, t_node *biggest);
 void	mediane_rrb(t_node **pileB, t_node *biggest);
 void	divide_and_push(t_node **pileA, t_node **pileB, int segment_size);
-int		max_segment(int debut_segment, int size_pile, int nb_segment);
+int		max_segment(int size_pile, int nb_segment);
 void	sort_push_a(t_node **pileA, t_node **pileB);
 t_node	*plus_grand_node(t_node *pileB);
 int		biggest_place(t_node *pileB, t_node *biggest);
+void	sort_push_b(t_node **pileA, t_node **pileB, int smallest, int seg_until);
+void	best_b_place(t_node **pileA, t_node **pileB);
+void	nb_arg(t_node **pileA, t_node **pileB, int	ac);

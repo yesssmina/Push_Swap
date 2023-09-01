@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:43:12 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/20 17:13:39 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:58:21 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	ft_pa(t_node **pileA, t_node **pileB)
 		new_node->value = value;
 		new_node->next = *pileA;
 		*pileA = new_node;
-
+		ft_putstr_fd("pa\n", 1);
 	}
 }
