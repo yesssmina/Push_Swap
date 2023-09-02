@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:13:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/01 20:31:08 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:00:06 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,45 +40,56 @@ void	ft_print_pile(t_node *pile)
 	}
 }
 
-void	nb_arg(t_node **pileA, t_node **pileB, int	ac)
+void	nb_arg(t_push *push)
 {
-	if (ac < 5)
+	if (push->ac1 < 5)
 	{
-		printf("nb_arg:%d\n", ac);
-		divide_and_push(pileA, pileB, ac);
+		divide_and_push(push, push->ac1);
 		return ;
 	}
-
-	if (ac < 101)
-		divide_and_push(pileA, pileB, 5);
+	if (push->ac1 < 101)
+	{
+		push->ac1 = 5;
+		divide_and_push(push, push->ac1);
+	}
 	else
-		divide_and_push(pileA, pileB, 11);
+	{
+		push->ac1 = 11;
+		divide_and_push(push, push->ac1);
+	}
 }
+
+
+
+
 int main(int ac, char **av)
 {
-	t_node *pileA;
-	t_node *pileB;
+	t_push	push;
+
+	push.ac1 = ac -1;
+	ft_init(&push);
 
 	if (ac < 2)
 		return (0);
 
-	pileA = ft_create_pileA(ac, av);
-	pileB = NULL;
+	*push.pileA = ft_create_pileA(ac, av);
 	
-	if (ft_error_double(pileA) == 1)
+	if (ft_error_double((*push.pileA)) == 1)
 	{
 		ft_putstr_fd("Error, doublon\n", 1);
 		return (0);
 	}
 
-	nb_arg(&pileA, &pileB, ac -1);
-	sort_push_a(&pileA, &pileB);
+	nb_arg(&push);
+	sort_push_a(push.pileA, push.pileB);
 	//puts("pileA:");
-	//ft_print_pile(pileA);
+	//ft_print_pile(*push.pileA);
 	//puts("pileB:");
-	//ft_print_pile(pileB);
-	free_list(pileA);
-	free_list(pileB);
+	//ft_print_pile(*push.pileB);
+	free_list(*push.pileA);
+	free_list(*push.pileB);
+	free(push.pileA);
+	free(push.pileB);
 	
 	return (0);
 }

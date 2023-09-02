@@ -17,6 +17,8 @@ SRC =  base.c \
 		insertion.c \
 		insertion2.c \
 		utils.c \
+		ft_init.c \
+		error.c \
 
 OBJ = $(SRC:.c=.o)
 

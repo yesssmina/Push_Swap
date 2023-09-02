@@ -6,9 +6,12 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:06:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/01 20:12:41 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:39:28 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -24,6 +27,27 @@ typedef struct		s_node
 	int				value;
 	struct s_node	*next;
 }					t_node;
+
+typedef struct	push
+{
+	t_node **pileA;
+	t_node **pileB;
+	t_node	*tmp;
+	int		top_node;
+	int		value;
+	int		all_smaller;
+	t_node	*top_n;
+	t_node	*bottom_node;
+	int		smallest;
+	int		count_top;
+	int		count_bottom;
+	int		size;
+	int		until;
+	int		memo_until;
+	int		ac1;
+
+	
+}				t_push;
 
 
 void	add_back(t_node **begin, int value);
@@ -46,11 +70,17 @@ int		size_pileA(t_node *pileA);
 int		smallest_place(t_node *pileA, t_node *smallest);
 void	mediane_rb(t_node **pileB, t_node *biggest);
 void	mediane_rrb(t_node **pileB, t_node *biggest);
-void	divide_and_push(t_node **pileA, t_node **pileB, int segment_size);
+void	divide_and_push(t_push *push, int	nb_segment);
 int		max_segment(int size_pile, int nb_segment);
 void	sort_push_a(t_node **pileA, t_node **pileB);
 t_node	*plus_grand_node(t_node *pileB);
 int		biggest_place(t_node *pileB, t_node *biggest);
-void	sort_push_b(t_node **pileA, t_node **pileB, int smallest, int seg_until);
-void	best_b_place(t_node **pileA, t_node **pileB);
-void	nb_arg(t_node **pileA, t_node **pileB, int	ac);
+void	sort_push_b(t_push *push);
+void	nb_arg(t_push *push);
+void	ft_init(t_push *push);
+void	ft_init1(t_push *push);
+void	ft_init2(t_push *push, int nb_seg);
+void	ft_init3(t_push *push);
+void	begin_sort_push_b(t_push *push);
+
+#endif
