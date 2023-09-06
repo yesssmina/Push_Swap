@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:13:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:14:15 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,6 @@ t_node	*ft_create_pile(t_push *push, int ac, char **av)
 	return (*push->pile_a);
 }
 
-void	ft_print_pile(t_node *pile)
-{
-	while (pile != NULL)
-	{
-		printf("%d\n", pile->value);
-		pile = pile->next;
-	}
-}
 
 void	nb_arg(t_push *push)
 {
@@ -120,10 +112,17 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-	//puts("pile_a:");
-	//ft_print_pile(*push.pile_a);
-	//puts("pile_b:");
-	//ft_print_pile(*push.pile_b);
 
-//casser les fonction
-//verif .h Makefile
+/*void	ft_print_pile(t_node *pile)
+{
+	while (pile != NULL)
+	{
+		printf("%d\n", pile->value);
+		pile = pile->next;
+	}
+}
+puts("pile_a:");
+ft_print_pile(*push.pile_a);
+puts("pile_b:");
+ft_print_pile(*push.pile_b);
+*/
