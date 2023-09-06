@@ -6,23 +6,23 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:48:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 03:51:02 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rb(t_node **pileB)
+void	ft_rb(t_node **pile_b)
 {
 	t_node	*first_node;
 	t_node	*last_node;
 
-	if (*pileB && (*pileB)->next)
+	if (*pile_b && (*pile_b)->next)
 	{
-		first_node = *pileB;
-		*pileB = first_node->next;
-		(*pileB)->prev = NULL;
-		last_node = *pileB;
+		first_node = *pile_b;
+		*pile_b = first_node->next;
+		(*pile_b)->prev = NULL;
+		last_node = *pile_b;
 		while (last_node->next)
 			last_node = last_node->next;
 		last_node->next = first_node;

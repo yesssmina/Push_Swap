@@ -6,85 +6,85 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 23:54:34 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 18:35:01 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	if_biggest(t_node **pileA, int smallest)
+void	if_biggest(t_node **pile_a, int smallest)
 {
-	if ((*pileA)->next->value == smallest)
-		ft_ra(pileA);
+	if ((*pile_a)->next->value == smallest)
+		ft_ra(pile_a);
 	else
 	{
-		ft_ra(pileA);
-		ft_sa(pileA);
+		ft_ra(pile_a);
+		ft_sa(pile_a);
 	}
 }
 
-int	three_items(t_node **pileA)
+int	three_items(t_node **pile_a)
 {
 	int	smallest;
 	int	biggest;
 
-	smallest = plus_petit_node(*pileA)->value;
-	biggest = plus_grand_node(*pileA)->value;
-	if ((*pileA)->value == smallest)
+	smallest = plus_petit_node(*pile_a)->value;
+	biggest = plus_grand_node(*pile_a)->value;
+	if ((*pile_a)->value == smallest)
 	{
-		ft_rra(pileA);
-		ft_sa(pileA);
+		ft_rra(pile_a);
+		ft_sa(pile_a);
 		return (1);
 	}
-	if ((*pileA)->value == biggest)
+	if ((*pile_a)->value == biggest)
 	{
-		if_biggest(pileA, smallest);
+		if_biggest(pile_a, smallest);
 		return (1);
 	}
-	if ((*pileA)->value != biggest && (*pileA)->value != smallest)
+	if ((*pile_a)->value != biggest && (*pile_a)->value != smallest)
 	{
-		if ((*pileA)->next->value == smallest)
-			ft_sa(pileA);
+		if ((*pile_a)->next->value == smallest)
+			ft_sa(pile_a);
 		else
-			ft_rra(pileA);
+			ft_rra(pile_a);
 		return (1);
 	}
 	return (0);
 }
 
-int	four_items(t_node **pileA, t_node **pileB)
+int	four_items(t_node **pile_a, t_node **pile_b)
 {
 	int	smallest;
 
-	smallest = plus_petit_node(*pileA)->value;
-	if ((*pileA)->next->value == smallest)
-		ft_ra(pileA);
-	else if ((*pileA)->next->next->value == smallest)
+	smallest = plus_petit_node(*pile_a)->value;
+	if ((*pile_a)->next->value == smallest)
+		ft_ra(pile_a);
+	else if ((*pile_a)->next->next->value == smallest)
 	{
-		ft_ra(pileA);
-		ft_ra(pileA);
+		ft_ra(pile_a);
+		ft_ra(pile_a);
 	}
-	else if ((*pileA)->next->next->next->value == smallest)
-		ft_rra(pileA);
-	if (!(*pileB) && gia_sorted(pileA))
+	else if ((*pile_a)->next->next->next->value == smallest)
+		ft_rra(pile_a);
+	if (!(*pile_b) && gia_sorted(pile_a))
 		return (1);
-	if (gia_sorted(pileA) == 1)
+	if (gia_sorted(pile_a) == 1)
 	{
-		ft_pa(pileA, pileB);
+		ft_pa(pile_a, pile_b);
 		return (1);
 	}
-	ft_pb(pileA, pileB);
-	three_items(pileA);
-	ft_pa(pileA, pileB);
+	ft_pb(pile_a, pile_b);
+	three_items(pile_a);
+	ft_pa(pile_a, pile_b);
 	return (1);
 }
 
-int	gia_sorted(t_node **pileA)
+int	gia_sorted(t_node **pile_a)
 {
 	t_node	*tmp_node;
 	int		tmp;
 
-	tmp_node = *pileA;
+	tmp_node = *pile_a;
 	tmp = tmp_node->value;
 	while ((tmp_node)->next != NULL)
 	{
@@ -99,27 +99,27 @@ int	gia_sorted(t_node **pileA)
 	return (1);
 }
 
-int	five_items(t_node **pileA, t_node **pileB)
+int	five_items(t_node **pile_a, t_node **pile_b)
 {
 	int	smallest;
 
-	smallest = plus_petit_node(*pileA)->value;
-	if ((*pileA)->next->value == smallest)
-		ft_ra(pileA);
-	else if ((*pileA)->next->next->value == smallest)
-		twice_ra(pileA);
-	else if ((*pileA)->next->next->next->value == smallest)
-		twice_rra(pileA);
-	else if ((*pileA)->next->next->next->next->value == smallest)
-		ft_rra(pileA);
-	if (gia_sorted(pileA))
+	smallest = plus_petit_node(*pile_a)->value;
+	if ((*pile_a)->next->value == smallest)
+		ft_ra(pile_a);
+	else if ((*pile_a)->next->next->value == smallest)
+		twice_ra(pile_a);
+	else if ((*pile_a)->next->next->next->value == smallest)
+		twice_rra(pile_a);
+	else if ((*pile_a)->next->next->next->next->value == smallest)
+		ft_rra(pile_a);
+	if (gia_sorted(pile_a))
 		return (1);
-	ft_pb(pileA, pileB);
-	four_items(pileA, pileB);
-	if (*pileB)
+	ft_pb(pile_a, pile_b);
+	four_items(pile_a, pile_b);
+	if (*pile_b)
 	{
-		ft_pa(pileA, pileB);
-		ft_pa(pileA, pileB);
+		ft_pa(pile_a, pile_b);
+		ft_pa(pile_a, pile_b);
 	}
 	return (1);
 }

@@ -57,16 +57,17 @@ all: $(NAME)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
+	@echo "\033[1;32mLibft: successful compilation\033[0m 🎆"
 
 bonus : $(OBJB)
 	@ar rcs $(NAME) $(OBJB)
 
 clean:
-	@echo "\e[34mJe supprime les .o\e[0m"
 	@rm -f $(OBJ) $(OBJB)
+	@echo "\033[1;30mLibft: .o correctly cleaned\033[0m"
 
 fclean: clean
-	rm -f $(NAME)
-
+	@echo "\033[1;30mLibft: .a correctly cleaned\033[0m"
+	@rm -f $(NAME)
 re:		fclean all

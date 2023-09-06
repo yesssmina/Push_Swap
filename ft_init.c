@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:02:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 04:12:13 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 void	ft_init(t_push *push)
 {
-	push->pileA = malloc(sizeof(t_node *));
-	push->pileB = malloc(sizeof(t_node *));
-	if (!push->pileA || !push-> pileB)
+	push->pile_a = malloc(sizeof(t_node *));
+	push->pile_b = malloc(sizeof(t_node *));
+	if (!push->pile_a || !push-> pile_b)
 		return ;
-	*push->pileA = NULL;
-	*push->pileB = NULL;
+	*push->pile_a = NULL;
+	*push->pile_b = NULL;
 }
 
 void	ft_init1(t_push *push)
 {
-	push->value = (*push->pileA)->value;
-	push->top_node = (*push->pileA)->value;
-	push->tmp = (*push->pileB);
+	push->value = (*push->pile_a)->value;
+	push->top_node = (*push->pile_a)->value;
+	push->tmp = (*push->pile_b);
 	push->all_smaller = 1;
 }
 
 void	ft_init2(t_push *push, int nb_seg)
 {
-	push->smallest = plus_petit_node(*push->pileA)->value;
-	push->size = size_pile(*push->pileA);
+	push->smallest = plus_petit_node(*push->pile_a)->value;
+	push->size = size_pile(*push->pile_a);
 	push->until = max_segment(push->size, nb_seg);
 	push->memo_until = push->until;
 }
 
 void	ft_init3(t_push *push)
 {
-	push->size = size_pile(*push->pileA);
-	push->top_n = *push->pileA;
-	push->bottom_node = *push->pileA;
+	push->size = size_pile(*push->pile_a);
+	push->top_n = *push->pile_a;
+	push->bottom_node = *push->pile_a;
 	push->count_top = 0;
 	push->count_bottom = 0;
 }

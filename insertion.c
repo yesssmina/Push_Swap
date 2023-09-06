@@ -6,27 +6,27 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:11:53 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 04:12:13 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	mediane_rb(t_node **pileB, t_node *biggest)
+void	mediane_rb(t_node **pile_b, t_node *biggest)
 {
-	while ((*pileB)->value != biggest->value)
+	while ((*pile_b)->value != biggest->value)
 	{
-		ft_rb(pileB);
-		biggest = plus_grand_node(*pileB);
+		ft_rb(pile_b);
+		biggest = plus_grand_node(*pile_b);
 	}
 }
 
-void	mediane_rrb(t_node **pileB, t_node *biggest)
+void	mediane_rrb(t_node **pile_b, t_node *biggest)
 {
-	while ((*pileB)->value != biggest->value)
+	while ((*pile_b)->value != biggest->value)
 	{
-		ft_rrb(pileB);
-		biggest = plus_grand_node(*pileB);
+		ft_rrb(pile_b);
+		biggest = plus_grand_node(*pile_b);
 	}
 }
 
@@ -38,37 +38,37 @@ int	max_segment(int size_pile, int nb_segment)
 	return (segment_size);
 }
 
-t_node	*plus_grand_node(t_node *pileB)
+t_node	*plus_grand_node(t_node *pile_b)
 {
 	t_node	*plus_grand;
 
-	plus_grand = pileB;
-	while (pileB)
+	plus_grand = pile_b;
+	while (pile_b)
 	{
-		if (pileB->value > plus_grand->value)
-			plus_grand = pileB;
-		pileB = pileB->next;
+		if (pile_b->value > plus_grand->value)
+			plus_grand = pile_b;
+		pile_b = pile_b->next;
 	}
 	return (plus_grand);
 }
 
-void	sort_push_a(t_node **pileA, t_node **pileB)
+void	sort_push_a(t_node **pile_a, t_node **pile_b)
 {
 	t_node	*biggest;
 	int		size;
 	int		mediane;
 	int		position;
 
-	while (*pileB)
+	while (*pile_b)
 	{
-		biggest = plus_grand_node(*pileB);
-		size = size_pile(*pileB);
+		biggest = plus_grand_node(*pile_b);
+		size = size_pile(*pile_b);
 		mediane = size / 2;
-		position = biggest_place(*pileB, biggest);
+		position = biggest_place(*pile_b, biggest);
 		if (position <= mediane)
-			mediane_rb(pileB, biggest);
+			mediane_rb(pile_b, biggest);
 		else
-			mediane_rrb(pileB, biggest);
-		ft_pa(pileA, pileB);
+			mediane_rrb(pile_b, biggest);
+		ft_pa(pile_a, pile_b);
 	}
 }

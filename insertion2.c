@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:34:11 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 18:26:25 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	begin_sort_push_b(t_push *push)
 {
 	if ((push->value > push->until))
 	{
-		ft_ra(push->pileA);
+		ft_ra(push->pile_a);
 		return ;
 	}
-	if ((*push->pileB) == NULL)
+	if ((*push->pile_b) == NULL)
 	{
-		ft_pb(push->pileA, push->pileB);
+		ft_pb(push->pile_a, push->pile_b);
 		return ;
 	}
 	while (push->tmp != NULL)
@@ -35,7 +35,7 @@ void	begin_sort_push_b(t_push *push)
 	}
 	if (push->all_smaller)
 	{
-		ft_pb(push->pileA, push->pileB);
+		ft_pb(push->pile_a, push->pile_b);
 		return ;
 	}
 }
@@ -44,15 +44,15 @@ void	sort_push_b(t_push *push)
 {
 	ft_init1(push);
 	begin_sort_push_b(push);
-	while ((*push->pileA)->value == push->top_node)
+	while ((*push->pile_a)->value == push->top_node)
 	{
-		if (push->top_node > (*push->pileB)->value)
+		if (push->top_node > (*push->pile_b)->value)
 		{
-			ft_pb(push->pileA, push->pileB);
+			ft_pb(push->pile_a, push->pile_b);
 			return ;
 		}
 		else
-			ft_rb(push->pileB);
+			ft_rb(push->pile_b);
 	}
 }
 
@@ -82,22 +82,22 @@ void	ra_or_rra(t_push *push)
 {
 	if (push->count_top < push->count_bottom)
 	{
-		if (*push->pileA && (*push->pileA)->next)
+		if (*push->pile_a && (*push->pile_a)->next)
 		{
-			while (*push->pileA && (*push->pileA)->value != push->top_n->value)
-				ft_ra(push->pileA);
+			while (*push->pile_a && (*push->pile_a)->value != push->top_n->value)
+				ft_ra(push->pile_a);
 		}
 		else
 		{
-			if ((*push->pileA)->value > (*push->pileA)->next->value)
+			if ((*push->pile_a)->value > (*push->pile_a)->next->value)
 			{
-				ft_pb(push->pileA, push->pileB);
+				ft_pb(push->pile_a, push->pile_b);
 				return ;
 			}
 			else
 			{
-				ft_ra(push->pileA);
-				ft_pb(push->pileA, push->pileB);
+				ft_ra(push->pile_a);
+				ft_pb(push->pile_a, push->pile_b);
 				return ;
 			}
 		}
@@ -107,16 +107,16 @@ void	ra_or_rra(t_push *push)
 void	divide_and_push(t_push *push, int nb_segment)
 {
 	ft_init2(push, nb_segment);
-	while (*push->pileA)
+	while (*push->pile_a)
 	{
 		ft_init3(push);
 		begin_divide(push);
 		ra_or_rra(push);
 		if (push->count_top > push->count_bottom)
 		{
-			while (*push->pileA != NULL
-				&& (*push->pileA)->value != push->bottom_node->value)
-				ft_rra(push->pileA);
+			while (*push->pile_a != NULL
+				&& (*push->pile_a)->value != push->bottom_node->value)
+				ft_rra(push->pile_a);
 		}
 		else
 			sort_push_b(push);

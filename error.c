@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:24:22 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 18:19:23 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:15:56 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ char	*error_mess(char *message)
 	exit(EXIT_FAILURE);
 }
 
-int	ft_error_double(t_node *pileA)
+int	ft_error_double(t_node *pile_a)
 {
 	t_node	*doublon;
 	t_node	*tmp;
 
-	doublon = pileA;
+	doublon = pile_a;
 	while (doublon)
 	{
 		tmp = doublon->next;

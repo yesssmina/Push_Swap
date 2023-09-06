@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:10:27 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 04:12:13 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,27 @@ void	add_back(t_node **begin, int value)
 	new_node->prev = current;
 }
 
-t_node	*plus_petit_node(t_node *pileA)
+t_node	*plus_petit_node(t_node *pile_a)
 {
 	t_node	*plus_petit;
 
-	plus_petit = pileA;
-	while (pileA)
+	plus_petit = pile_a;
+	while (pile_a)
 	{
-		if (pileA->value < plus_petit->value)
-			plus_petit = pileA;
-		pileA = pileA->next;
+		if (pile_a->value < plus_petit->value)
+			plus_petit = pile_a;
+		pile_a = pile_a->next;
 	}
 	return (plus_petit);
 }
 
-int	size_pile(t_node *pileA)
+int	size_pile(t_node *pile_a)
 {
 	int		size;
 	t_node	*tmp;
 
 	size = 0;
-	tmp = pileA;
+	tmp = pile_a;
 	while (tmp != NULL)
 	{
 		size++;
@@ -64,13 +64,13 @@ int	size_pile(t_node *pileA)
 	return (size);
 }
 
-int	smallest_place(t_node *pileA, t_node *smallest)
+int	smallest_place(t_node *pile_a, t_node *smallest)
 {
 	t_node	*list;
 	int		smallest_place;
 
 	smallest_place = 1;
-	list = pileA;
+	list = pile_a;
 	while (list)
 	{
 		if (list->value == smallest->value)
@@ -81,13 +81,13 @@ int	smallest_place(t_node *pileA, t_node *smallest)
 	return (0);
 }
 
-int	biggest_place(t_node *pileB, t_node *biggest)
+int	biggest_place(t_node *pile_b, t_node *biggest)
 {
 	t_node	*list;
 	int		biggest_place;
 
 	biggest_place = 1;
-	list = pileB;
+	list = pile_b;
 	while (list)
 	{
 		if (list->value == biggest->value)

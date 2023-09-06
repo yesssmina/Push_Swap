@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:13:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 04:13:26 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ t_node	*ft_create_pile(t_push *push, int ac, char **av)
 	{
 		ft_no_digit(av[push->i]);
 		push->valeur = ft_atoi(av[push->i++]);
-		add_back(push->pileA, push->valeur);
+		add_back(push->pile_a, push->valeur);
 	}
 	push->j = 0;
 	while (push->res[push->j] != NULL)
 		free(push->res[push->j++]);
 	free(push->res);
-	return (*push->pileA);
+	return (*push->pile_a);
 }
 
 void	ft_print_pile(t_node *pile)
@@ -50,18 +50,18 @@ void	ft_print_pile(t_node *pile)
 
 void	nb_arg(t_push *push)
 {
-	if (size_pile(*(push->pileA)) == 2)
+	if (size_pile(*(push->pile_a)) == 2)
 	{
-		ft_sa(push->pileA);
+		ft_sa(push->pile_a);
 		return ;
 	}
-	if (size_pile(*push->pileA) == 3 && three_items(push->pileA) == 1)
+	if (size_pile(*push->pile_a) == 3 && three_items(push->pile_a) == 1)
 		return ;
-	if (size_pile(*push->pileA) == 4
-		&& four_items(push->pileA, push->pileB) == 1)
+	if (size_pile(*push->pile_a) == 4
+		&& four_items(push->pile_a, push->pile_b) == 1)
 		return ;
-	if (size_pile(*push->pileA) == 5
-		&& five_items(push->pileA, push->pileB) == 1)
+	if (size_pile(*push->pile_a) == 5
+		&& five_items(push->pile_a, push->pile_b) == 1)
 		return ;
 	if (push->ac1 < 101)
 	{
@@ -80,7 +80,7 @@ void	sorted(t_push *push)
 	t_node	*tmp_node;
 	int		tmp;
 
-	tmp_node = *push->pileA;
+	tmp_node = *push->pile_a;
 	tmp = tmp_node->value;
 	while ((tmp_node)->next != NULL)
 	{
@@ -92,10 +92,10 @@ void	sorted(t_push *push)
 		else
 			return ;
 	}
-	free_list((*push->pileA));
-	free_list((*push->pileB));
-	free(push->pileA);
-	free(push->pileB);
+	free_list((*push->pile_a));
+	free_list((*push->pile_b));
+	free(push->pile_a);
+	free(push->pile_b);
 	error_mess("");
 }
 
@@ -107,23 +107,23 @@ int	main(int ac, char **av)
 	ft_init(&push);
 	if (ac < 2)
 		return (0);
-	*push.pileA = ft_create_pile(&push, ac, av);
-	ft_error_double(*push.pileA);
+	*push.pile_a = ft_create_pile(&push, ac, av);
+	ft_error_double(*push.pile_a);
 	sorted(&push);
 	nb_arg(&push);
-	if (*push.pileB != NULL)
-		sort_push_a(push.pileA, push.pileB);
-	free_list(*push.pileA);
-	free_list(*push.pileB);
-	free(push.pileA);
-	free(push.pileB);
+	if (*push.pile_b != NULL)
+		sort_push_a(push.pile_a, push.pile_b);
+	free_list(*push.pile_a);
+	free_list(*push.pile_b);
+	free(push.pile_a);
+	free(push.pile_b);
 	return (0);
 }
 
-	//puts("pileA:");
-	//ft_print_pile(*push.pileA);
-	//puts("pileB:");
-	//ft_print_pile(*push.pileB);
+	//puts("pile_a:");
+	//ft_print_pile(*push.pile_a);
+	//puts("pile_b:");
+	//ft_print_pile(*push.pile_b);
 
 //casser les fonction
 //verif .h Makefile
