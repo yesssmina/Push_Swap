@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 03:08:03 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 03:53:07 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:34:20 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,10 @@ void	ft_rra(t_node **pileA)
 		*pileA = ultime_node;
 		ft_putstr_fd("rra\n", 1);
 	}
+}
+
+void	twice_rra(t_node **pileA)
+{
+	ft_rra(pileA);
+	ft_rra(pileA);
 }

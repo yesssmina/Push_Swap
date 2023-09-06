@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:34:11 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 04:00:26 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:26:25 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,6 @@ void	ra_or_rra(t_push *push)
 			}
 		}
 	}
-	if (push->count_top > push->count_bottom)
-	{
-		while (*push->pileA != NULL
-			&& (*push->pileA)->value != push->bottom_node->value)
-			ft_rra(push->pileA);
-	}
-	else
-		sort_push_b(push);
 }
 
 void	divide_and_push(t_push *push, int nb_segment)
@@ -120,6 +112,14 @@ void	divide_and_push(t_push *push, int nb_segment)
 		ft_init3(push);
 		begin_divide(push);
 		ra_or_rra(push);
+		if (push->count_top > push->count_bottom)
+		{
+			while (*push->pileA != NULL
+				&& (*push->pileA)->value != push->bottom_node->value)
+				ft_rra(push->pileA);
+		}
+		else
+			sort_push_b(push);
 		if (push->count_top == push->size && push->count_bottom == push->size)
 		{
 			push->smallest = push->until + 1;

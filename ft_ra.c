@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:15:12 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 03:49:39 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:34:31 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,10 @@ void	ft_ra(t_node **pileA)
 		first_node->next = NULL;
 		ft_putstr_fd("ra\n", 1);
 	}
+}
+
+void	twice_ra(t_node **pileA)
+{
+	ft_ra(pileA);
+	ft_ra(pileA);
 }

@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 23:54:34 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 04:10:13 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:35:01 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,9 @@ int	five_items(t_node **pileA, t_node **pileB)
 	if ((*pileA)->next->value == smallest)
 		ft_ra(pileA);
 	else if ((*pileA)->next->next->value == smallest)
-	{
-		ft_ra(pileA);
-		ft_ra(pileA);
-	}
+		twice_ra(pileA);
 	else if ((*pileA)->next->next->next->value == smallest)
-	{
-		ft_rra(pileA);
-		ft_rra(pileA);
-	}
+		twice_rra(pileA);
 	else if ((*pileA)->next->next->next->next->value == smallest)
 		ft_rra(pileA);
 	if (gia_sorted(pileA))

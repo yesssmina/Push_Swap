@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:06:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 04:12:13 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:34:38 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,8 @@ int		four_items(t_node **pileA, t_node **pileB);
 int		five_items(t_node **pileA, t_node **pileB);
 t_node	*second_plus_petit_node(t_node *pileA, int smallest);
 int		gia_sorted(t_node **pileA);
-void ft_init_create(t_push *push, char **av);
+void	ft_init_create(t_push *push, char **av);
+void	twice_ra(t_node **pileA);
+void	twice_rra(t_node **pileA);
+
 #endif
