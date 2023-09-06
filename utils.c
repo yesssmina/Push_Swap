@@ -6,36 +6,31 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:10:27 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/02 17:27:28 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 04:12:13 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void   add_back(t_node **begin, int value)
+void	add_back(t_node **begin, int value)
 {
-	t_node  *current;
-	t_node  *new_node;
+	t_node	*current;
+	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
-
 	new_node->value = value;
 	new_node->next = NULL;
 	new_node->prev = NULL;
-
-	if (*begin == NULL)  // Si la liste est vide, ajoute le premier nœud
+	if (*begin == NULL)
 	{
 		*begin = new_node;
 		return ;
 	}
-	
 	current = *begin;
-
 	while (current->next != NULL)
 		current = current->next;
-
 	current->next = new_node;
 	new_node->prev = current;
 }
@@ -45,7 +40,6 @@ t_node	*plus_petit_node(t_node *pileA)
 	t_node	*plus_petit;
 
 	plus_petit = pileA;
-
 	while (pileA)
 	{
 		if (pileA->value < plus_petit->value)
@@ -55,14 +49,13 @@ t_node	*plus_petit_node(t_node *pileA)
 	return (plus_petit);
 }
 
-int	size_pileA(t_node *pileA)
+int	size_pile(t_node *pileA)
 {
 	int		size;
 	t_node	*tmp;
 
 	size = 0;
 	tmp = pileA;
-
 	while (tmp != NULL)
 	{
 		size++;
@@ -78,12 +71,10 @@ int	smallest_place(t_node *pileA, t_node *smallest)
 
 	smallest_place = 1;
 	list = pileA;
-
 	while (list)
 	{
 		if (list->value == smallest->value)
 			return (smallest_place);
-
 		smallest_place++;
 		list = list->next;
 	}
@@ -97,12 +88,10 @@ int	biggest_place(t_node *pileB, t_node *biggest)
 
 	biggest_place = 1;
 	list = pileB;
-
 	while (list)
 	{
 		if (list->value == biggest->value)
 			return (biggest_place);
-
 		biggest_place++;
 		list = list->next;
 	}

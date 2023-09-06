@@ -6,13 +6,13 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:02:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 03:34:22 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 04:12:13 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_init(t_push *push)
+void	ft_init(t_push *push)
 {
 	push->pileA = malloc(sizeof(t_node *));
 	push->pileB = malloc(sizeof(t_node *));
@@ -22,7 +22,7 @@ void ft_init(t_push *push)
 	*push->pileB = NULL;
 }
 
-void ft_init1(t_push *push)
+void	ft_init1(t_push *push)
 {
 	push->value = (*push->pileA)->value;
 	push->top_node = (*push->pileA)->value;
@@ -30,24 +30,24 @@ void ft_init1(t_push *push)
 	push->all_smaller = 1;
 }
 
-void ft_init2(t_push *push, int nb_seg)
+void	ft_init2(t_push *push, int nb_seg)
 {
 	push->smallest = plus_petit_node(*push->pileA)->value;
-	push->size = size_pileA(*push->pileA);
+	push->size = size_pile(*push->pileA);
 	push->until = max_segment(push->size, nb_seg);
 	push->memo_until = push->until;
 }
 
-void ft_init3(t_push *push)
+void	ft_init3(t_push *push)
 {
-	push->size = size_pileA(*push->pileA);
+	push->size = size_pile(*push->pileA);
 	push->top_n = *push->pileA;
 	push->bottom_node = *push->pileA;
 	push->count_top = 0;
 	push->count_bottom = 0;
 }
 
-void ft_init_create(t_push *push, char **av)
+void	ft_init_create(t_push *push, char **av)
 {
 	push->pile = NULL;
 	push->valeur = 0;

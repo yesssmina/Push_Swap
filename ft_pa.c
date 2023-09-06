@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:43:12 by sannagar          #+#    #+#             */
-/*   Updated: 2023/08/30 17:58:21 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 03:46:24 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 void	ft_pa(t_node **pileA, t_node **pileB)
 {
-	int	value;
+	int		value;
 	t_node	*tmp;
 	t_node	*new_node;
 
 	if (*pileB)
 	{
-		value = (*pileB)->value; //valeur sommet B
-		tmp = *pileB; //stock pointeur sommet B
-
-		*pileB = (*pileB)->next; // deplace pointeur sommet au 2e element
-		free(tmp); //libere 1er maillon B
-
-		// Ajoute 1er maillon a A
+		value = (*pileB)->value;
+		tmp = *pileB;
+		*pileB = (*pileB)->next;
+		free(tmp);
 		new_node = malloc(sizeof(t_node));
 		new_node->value = value;
 		new_node->next = *pileA;
