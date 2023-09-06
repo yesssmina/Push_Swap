@@ -19,6 +19,8 @@ SRC =  base.c \
 		utils.c \
 		ft_init.c \
 		error.c \
+		cas.c \
+		small_list.c \
 
 OBJ = $(SRC:.c=.o)
 

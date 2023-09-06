@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:34:11 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/02 18:09:16 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/05 23:52:56 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	begin_sort_push_b(t_push *push)
 {
-	if (push->value < push->smallest || push->value > push->until) 
+	if ((/*push->value < push->smallest || */push->value > push->until)) 
 	{
+		//printf("*****smallest***:%d\n", push->smallest);
+		//printf("*****until***:%d\n", push->until);
+		//puts("here?");
 		ft_ra(push->pileA);
 		return; 
 	}
@@ -34,7 +37,7 @@ void	begin_sort_push_b(t_push *push)
 		}
 		push->tmp = push->tmp->next;
 	}
-		if (push->all_smaller)
+	if (push->all_smaller)
 	{
 		ft_pb(push->pileA, push->pileB);
 		return ;
@@ -53,6 +56,7 @@ void	sort_push_b(t_push *push)
 
 		if (push->top_node > (*push->pileB)->value)
 		{
+			//puts("la?");
 			ft_pb(push->pileA, push->pileB);
 			return ;
 		}
@@ -92,7 +96,7 @@ void	ra_or_rra(t_push *push)
 {
 	if (push->count_top < push->count_bottom)
 	{
-		if (*push->pileA && *push->pileA && (*push->pileA)->next)
+		if (*push->pileA && (*push->pileA)->next)
 		{
 			while (*push->pileA && (*push->pileA)->value != push->top_n->value)
 			{
@@ -101,8 +105,17 @@ void	ra_or_rra(t_push *push)
 		}
 		else
 		{
-			ft_pb(push->pileA, push->pileB);
-			return ;
+			if ((*push->pileA)->value > (*push->pileA)->next->value)
+			{
+				ft_pb(push->pileA, push->pileB);
+				return ;
+			}
+			else
+			{
+				ft_ra(push->pileA);
+				ft_pb(push->pileA, push->pileB);
+				return ;
+			}
 		}
 	}
 	if (push->count_top > push->count_bottom)

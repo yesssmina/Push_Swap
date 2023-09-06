@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:02:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/02 17:59:20 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/06 03:34:22 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,15 @@ void ft_init3(t_push *push)
 	push->bottom_node = *push->pileA;
 	push->count_top = 0;
 	push->count_bottom = 0;
+}
+
+void ft_init_create(t_push *push, char **av)
+{
+	push->pile = NULL;
+	push->valeur = 0;
+	push->i = 1;
+	push->j = 0;
+	push->res = ft_split(av[push->i], ' ');
+	if (!push->res)
+		return ;
 }
