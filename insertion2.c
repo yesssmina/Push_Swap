@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:34:11 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:19:36 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void	ra_or_rra(t_push *push)
 	{
 		if (*push->pile_a && (*push->pile_a)->next)
 		{
-			while (*push->pile_a && (*push->pile_a)->value != push->top_n->value)
+			while (*push->pile_a
+				&& (*push->pile_a)->value != push->top_n->value)
 				ft_ra(push->pile_a);
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:13:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 20:14:15 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:20:09 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ t_node	*ft_create_pile(t_push *push, int ac, char **av)
 	ft_init_create(push, av);
 	if (ac == 2 && ft_strlen(av[push->i]) != ft_strlen(push->res[push->j]))
 	{
-		while (push->res[push->j] != NULL)
-		{
+		while (ac++ && push->res[push->j] != NULL)
 			av[push->i++] = push->res[push->j++];
-			ac++;
-		}
 		av[push->i] = NULL;
 		ac--;
 	}
@@ -38,7 +35,6 @@ t_node	*ft_create_pile(t_push *push, int ac, char **av)
 	free(push->res);
 	return (*push->pile_a);
 }
-
 
 void	nb_arg(t_push *push)
 {
@@ -111,7 +107,6 @@ int	main(int ac, char **av)
 	free(push.pile_b);
 	return (0);
 }
-
 
 /*void	ft_print_pile(t_node *pile)
 {
