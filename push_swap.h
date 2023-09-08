@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:06:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 20:15:05 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:54:06 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct push
 	int		valeur;
 	int		i;
 	int		j;
+	int		k;
 	char	**res;
 	t_node	**pile_a;
 	t_node	**pile_b;
@@ -66,7 +67,7 @@ void	ft_rrb(t_node **pile_b);
 void	free_list(t_node *list);
 t_node	*plus_petit_node(t_node *pile_a);
 void	sort(t_node **pile_a, t_node **pile_b);
-int		ft_error_double(t_node *pile_a);
+int		ft_error_double(t_push *push, t_node *pile_a);
 int		size_pile(t_node *pile_a);
 int		smallest_place(t_node *pile_a, t_node *smallest);
 void	mediane_rb(t_node **pile_b, t_node *biggest);
@@ -84,7 +85,6 @@ void	ft_init2(t_push *push, int nb_seg);
 void	ft_init3(t_push *push);
 void	begin_sort_push_b(t_push *push);
 char	*error_mess(char *message);
-int		ft_no_digit(char *str);
 void	sorted(t_push *push);
 void	if_biggest(t_node **pile_a, int smallest);
 int		three_items(t_node **pile_a);
@@ -95,5 +95,6 @@ int		gia_sorted(t_node **pile_a);
 void	ft_init_create(t_push *push, char **av);
 void	twice_ra(t_node **pile_a);
 void	twice_rra(t_node **pile_a);
-
+int		ft_no_digit(t_push *push, char *str);
+void	if_no_digit_free(t_push *push);
 #endif

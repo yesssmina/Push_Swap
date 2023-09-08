@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:02:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/08 19:33:43 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:30:09 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	ft_init_create(t_push *push, char **av)
 	push->valeur = 0;
 	push->i = 1;
 	push->j = 0;
+	push->k = 0;
 	push->res = ft_split(av[push->i], ' ');
 	if (!push->res)
 		return ;
