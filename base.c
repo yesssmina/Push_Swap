@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:13:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/08 19:20:09 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:33:12 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,3 +121,13 @@ ft_print_pile(*push.pile_a);
 puts("pile_b:");
 ft_print_pile(*push.pile_b);
 */
+
+	//if (ft_strlen(av[push->i]) == 1)
+	//{
+	//	free_list(*push->pile_a);
+	//	free_list(*push->pile_b);
+	//	free(push->pile_a);
+	//	free(push->pile_b);
+	//	puts("la");
+	//	error_mess("");
+	//}
