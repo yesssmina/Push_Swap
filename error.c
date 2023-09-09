@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:24:22 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/08 20:57:27 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:44:44 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	if_no_digit_free(t_push *push)
 
 int	ft_no_digit(t_push *push, char *str)
 {
-	push->k = 0;
 	if (*str == '-')
 		str++;
 	if (*str == '\0')
