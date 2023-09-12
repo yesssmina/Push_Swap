@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:10:27 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/06 19:16:10 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/09 18:08:53 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	add_back(t_node **begin, int value)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return ;
+		error_mess("Error\nL'allocation de 'new_node' a echouee\n");
 	new_node->value = value;
 	new_node->next = NULL;
 	new_node->prev = NULL;

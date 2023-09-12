@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanaggar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 15:58:59 by sanaggar          #+#    #+#             */
-/*   Updated: 2022/11/21 18:03:24 by sanaggar         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:01:42 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	dst[lendst + i] = '\0';
 	return (lendst + lensrc);
-}		
+}
 /*
 #include <string.h>
 

@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   if_no_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 18:32:09 by sanaggar          #+#    #+#             */
-/*   Updated: 2023/09/12 17:54:05 by sannagar         ###   ########.fr       */
+/*   Created: 2023/09/12 17:48:46 by sannagar          #+#    #+#             */
+/*   Updated: 2023/09/12 18:48:46 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_atoi(char *str)
+void	if_no_int_free(t_push *push)
 {
-	int	i;
-	int	sign;
-	int	nb;
+	while (push->res[push->k] != NULL)
+		free(push->res[push->k++]);
+	free(push->res);
+	free_list(*push->pile_a);
+	free_list(*push->pile_b);
+	free(push->pile_a);
+	free(push->pile_b);
+}
+
+long	ft_atoi_long(char *str)
+{
+	int		i;
+	int		sign;
+	long	nb;
 
 	i = 0;
 	sign = 1;
@@ -38,10 +49,20 @@ int	ft_atoi(char *str)
 	nb = sign * nb;
 	return (nb);
 }
-/*
-int	main(int argc, char	**argv)
+
+void	if_no_int(t_push *push, char *str)
 {
-	argc = 2;
-	printf("%d\n", atoi(argv[1]));
-	printf("%d\n", ft_atoi(argv[1]));
-}*/
+	long	nb;
+
+	nb = ft_atoi_long(str);
+	if (ft_strlen(str) > 11)
+	{
+		if_no_int_free(push);
+		error_mess("Error\nAu moins un nombre n'est pas dans la plage int\n");
+	}
+	if (nb < INT_MIN || nb > INT_MAX)
+	{
+		if_no_int_free(push);
+		error_mess("Error\nAu moins un nombre n'est pas dans la plage int\n");
+	}
+}

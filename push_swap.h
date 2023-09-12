@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:06:20 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/08 20:54:06 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:46:14 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,8 @@ void	twice_ra(t_node **pile_a);
 void	twice_rra(t_node **pile_a);
 int		ft_no_digit(t_push *push, char *str);
 void	if_no_digit_free(t_push *push);
+long	ft_atoi_long(char *str);
+void	if_no_int(t_push *push, char *str);
+void	if_no_int_free(t_push *push);
+
 #endif

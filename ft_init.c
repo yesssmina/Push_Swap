@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:02:43 by sannagar          #+#    #+#             */
-/*   Updated: 2023/09/08 20:30:09 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/09/09 18:29:35 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_init(t_push *push)
 	push->pile_a = malloc(sizeof(t_node *));
 	push->pile_b = malloc(sizeof(t_node *));
 	if (!push->pile_a || !push-> pile_b)
-		return ;
+		error_mess("Error\nL'allocation de 'pile_b' ou 'pile_a' a echouee\n");
 	*push->pile_a = NULL;
 	*push->pile_b = NULL;
 }
@@ -56,12 +56,12 @@ void	ft_init_create(t_push *push, char **av)
 	push->k = 0;
 	push->res = ft_split(av[push->i], ' ');
 	if (!push->res)
-		return ;
+		error_mess("Error\nL'implementation de 'res' a echouee\n");
 	if (!push->res[push->j])
 	{
 		free(push->pile_a);
 		free(push->pile_b);
 		free(push->res);
-		error_mess("");
+		error_mess("Error\nLa liste doit contenir que des nombres\n");
 	}
 }

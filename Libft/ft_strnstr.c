@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanaggar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 17:58:27 by sanaggar          #+#    #+#             */
-/*   Updated: 2022/11/27 18:45:36 by sanaggar         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:02:18 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 				return ((char *)s1 + i);
 			j++;
 		}
-	i++;
+		i++;
 	}
 	if (j != (size_t)ft_strlen(s2) || len == 0)
 		return (0);

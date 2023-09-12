@@ -20,6 +20,7 @@ SRC =  base.c \
 		ft_init.c \
 		error.c \
 		small_list.c \
+		if_no_int.c \
 
 OBJ = $(SRC:.c=.o)
 
